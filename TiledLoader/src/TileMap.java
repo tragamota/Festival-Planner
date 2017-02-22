@@ -11,8 +11,6 @@ public class TileMap {
 
     private int width, height;
 
-    private JsonReader reader;
-
     public TileMap(String fileName) {
         JsonReader reader = Json.createReader(getClass().getResourceAsStream(fileName));
         JsonObject inputJson = (JsonObject) reader.read();
@@ -32,7 +30,7 @@ public class TileMap {
         }
 
         JsonArray tileSetsArray = inputJson.getJsonArray("tilesets");
-    String[] tileSetsFileNames = new String[tileSetsArray.size()];
+        String[] tileSetsFileNames = new String[tileSetsArray.size()];
         for (int i = 0; i < tileSetsArray.size(); i++) {
         JsonObject tileSetObjects = tileSetsArray.getJsonObject(0);
         String tileSetNameOfFile = tileSetObjects.getString("image");
